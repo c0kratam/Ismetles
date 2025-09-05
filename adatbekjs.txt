@@ -1,0 +1,27 @@
+const form = document.getElementById("adatForm");
+
+function betoltAdatok() {
+    const nev = localStorage.getItem("nev") || "NA";
+    const telepules = localStorage.getItem("telepules") || "NA";
+    const irsz = localStorage.getItem("irsz") || "NA";
+    const kozterulet = localStorage.getItem("kozterulet") || "NA";
+    const hazszam = localStorage.getItem("hazszam") || "NA";
+
+    document.getElementById("outNev").textContent = nev;
+    document.getElementById("outTelepules").textContent = telepules;
+    document.getElementById("outIrsz").textContent = irsz;
+    document.getElementById("outKozterulet").textContent = kozterulet;
+    document.getElementById("outHazszam").textContent = hazszam;
+}
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    localStorage.setItem("nev", document.getElementById("nev").value);
+    localStorage.setItem("telepules", document.getElementById("telepules").value);
+    localStorage.setItem("irsz", document.getElementById("irsz").value);
+    localStorage.setItem("kozterulet", document.getElementById("kozterulet").value);
+    localStorage.setItem("hazszam", document.getElementById("hazszam").value);
+    betoltAdatok();
+});
+
+    betoltAdatok();
